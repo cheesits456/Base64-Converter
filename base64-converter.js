@@ -1,3 +1,5 @@
+const debug = true;
+
 const action = process.argv[2];
 const input = process.argv.slice(3).join(" ");
 
