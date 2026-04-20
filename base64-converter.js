@@ -24,8 +24,10 @@ switch (action) {
 
 function convertToBinary(text) {
     let binary = "";
-    for (let i = 0; i < input.length; i++) {
-        binary += input[i].charCodeAt(0).toString(2);
+    for (let i = 0; i < text.length; i++) {
+        let data = text[i].charCodeAt(0).toString(2);
+        while (data.length < 8) data = `0${data}`;
+        binary += data;
     }
     return binary;
 }
