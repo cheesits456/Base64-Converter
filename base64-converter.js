@@ -5,7 +5,6 @@ if (!["encode", "decode"].includes(action)) return console.log("Error: First arg
 
 switch (action) {
 
-
     case "encode":
 
         const binaryData = convertToBinary(input).match(/.{1,6}/g);
@@ -28,7 +27,6 @@ switch (action) {
         console.log("decode");
 
         break;
-
 
 }
 
