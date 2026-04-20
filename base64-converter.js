@@ -25,7 +25,7 @@ switch (action) {
 		// Convert binary sets back to characters using the base64Alphabet variable as reference
 		for (const element of binaryData) output += base64Alphabet.charAt(parseInt(element, 2));
 
-		// Print output to console with pad char
+		// Print output to console with pad char(s)
 		console.log(output + padding);
 
 		break;
