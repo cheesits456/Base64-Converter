@@ -11,7 +11,6 @@ switch (action) {
         const binaryData = convertToBinary(input).match(/.{1,6}/g);
 
         let lastChar = binaryData[binaryData.length - 1];
-        const lastCharLength = lastChar.length;
         let padding = "";
         while (lastChar.length < 6) {
             lastChar += "00";
