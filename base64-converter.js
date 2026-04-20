@@ -8,8 +8,10 @@ switch (action) {
 
     case "encode":
 
+        // Convert input to binary, split every 6 characters
         const binaryData = convertToBinary(input).match(/.{1,6}/g);
 
+        // Pad last array element and set pad string with appropriate number of '='
         let lastChar = binaryData[binaryData.length - 1];
         let padding = "";
         while (lastChar.length < 6) {
