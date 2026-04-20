@@ -9,6 +9,7 @@ switch (action) {
     case "encode":
 
         const binaryData = convertToBinary(input).match(/.{1,6}/g);
+
         let lastChar = binaryData[binaryData.length - 1];
         const lastCharLength = lastChar.length;
         let padding = "";
@@ -16,6 +17,7 @@ switch (action) {
             lastChar += "00";
             padding += "=";
         }
+
         console.log(binaryData);
         console.log(padding);
 
