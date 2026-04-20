@@ -7,11 +7,9 @@ switch (action) {
 
 
     case "encode":
-
-        console.log("encode");
-
+        const binaryData = convertToBinary(input);
+        console.log(binaryData);
         break;
-
 
     case "decode":
 
@@ -19,5 +17,13 @@ switch (action) {
 
         break;
 
-        
+
+}
+
+function convertToBinary(text) {
+    let binary = "";
+    for (let i = 0; i < input.length; i++) {
+        binary += input[i].charCodeAt(0).toString(2);
+    }
+    return binary;
 }
