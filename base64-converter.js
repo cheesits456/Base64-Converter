@@ -9,8 +9,19 @@ switch (action) {
 
 
     case "encode":
-        const binaryData = convertToBinary(input);
-        console.log(binaryData);
+
+        const binaryData = convertToBinary(input).match(/.{1,6}/g);
+        if (debug) console.log(binaryData);
+        let lastChar = binaryData[binaryData.length - 1];
+        const lastCharLength = lastChar.length;
+        let padding = "";
+        while (lastChar.length < 6) {
+            lastChar += "00";
+            padding += "=";
+        }
+        if (debug) console.log(lastChar);
+        if (debug) console.log(padding);
+
         break;
 
     case "decode":
