@@ -21,8 +21,6 @@ switch (action) {
         }
         binaryData[binaryData.length - 1] = lastChar;
 
-        console.log(binaryData);
-        console.log(padding);
 
         break;
 
