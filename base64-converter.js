@@ -8,6 +8,7 @@ switch (action) {
 
     case "encode":
 
+        let output = "";
         let padding = "";
 
         // Convert input to binary, split every 6 characters
@@ -21,6 +22,11 @@ switch (action) {
         }
         binaryData[binaryData.length - 1] = lastChar;
 
+        // Convert binary sets back to characters using the base64Alphabet variable as reference
+        for (const element of binaryData) output += base64Alphabet.charAt(parseInt(element, 2));
+
+        // Print output to console with pad char
+        console.log(output + padding);
 
         break;
 
