@@ -1,5 +1,3 @@
-const debug = true;
-
 const action = process.argv[2];
 const input = process.argv.slice(3).join(" ");
 
@@ -11,7 +9,6 @@ switch (action) {
     case "encode":
 
         const binaryData = convertToBinary(input).match(/.{1,6}/g);
-        if (debug) console.log(binaryData);
         let lastChar = binaryData[binaryData.length - 1];
         const lastCharLength = lastChar.length;
         let padding = "";
@@ -19,8 +16,8 @@ switch (action) {
             lastChar += "00";
             padding += "=";
         }
-        if (debug) console.log(lastChar);
-        if (debug) console.log(padding);
+        console.log(binaryData);
+        console.log(padding);
 
         break;
 
