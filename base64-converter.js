@@ -32,7 +32,12 @@ switch (action) {
 		break;
 
 	case "decode":
-		console.log("decode");
+		// Check if all chars are valid
+		for (const char of input.split("")) {
+			if (!base64Alphabet.includes(char) && char !== "=") return console.log("Error: Input string is not a valid base64 string")
+		}
+
+		console.log(input);
 
 		break;
 }
