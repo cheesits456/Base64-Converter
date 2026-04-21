@@ -2,12 +2,13 @@ const action = process.argv[2];
 const input = process.argv.slice(3).join(" ");
 const base64Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 
+
 if (!["encode", "decode"].includes(action)) return console.log("Error: First arg must be one of 'encode' or 'decode'");
+
 
 switch (action) {
 
 	case "encode":
-
 		let output = "";
 		let padding = "";
 
@@ -31,11 +32,9 @@ switch (action) {
 		break;
 
 	case "decode":
-
 		console.log("decode");
 
 		break;
-
 }
 
 function convertToBinary(text) {
