@@ -40,6 +40,9 @@ switch (action) {
 		// Add pad chars if missing
 		while (input.length % 4) input += "=";
 
+		// Check if valid number of pad chars
+		if (input.split("=").length > 3) return invalidBase64String();
+
 		console.log(input);
 
 		break;
