@@ -1,5 +1,5 @@
 const action = process.argv[2];
-const input = process.argv.slice(3).join(" ");
+let input = process.argv.slice(3).join(" ");
 const base64Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 
 
@@ -36,6 +36,9 @@ switch (action) {
 		for (const char of input.split("")) {
 			if (!base64Alphabet.includes(char) && char !== "=") return console.log("Error: Input string is not a valid base64 string")
 		}
+
+		// Add pad chars if missing
+		while (input.length % 4) input += "=";
 
 		console.log(input);
 
