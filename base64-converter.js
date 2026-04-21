@@ -45,6 +45,7 @@ switch (action) {
 		break;
 }
 
+
 function convertToBinary(text) {
 	let binary = "";
 	for (let i = 0; i < text.length; i++) {
