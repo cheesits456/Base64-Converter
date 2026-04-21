@@ -34,7 +34,7 @@ switch (action) {
 	case "decode":
 		// Check if all chars are valid
 		for (const char of input.split("")) {
-			if (!base64Alphabet.includes(char) && char !== "=") return console.log("Error: Input string is not a valid base64 string")
+			if (!base64Alphabet.includes(char) && char !== "=") return invalidBase64String();
 		}
 
 		// Add pad chars if missing
@@ -54,4 +54,8 @@ function convertToBinary(text) {
 		binary += data;
 	}
 	return binary;
+}
+
+function invalidBase64String() {
+	console.log("Error: Input string is not a valid base64 string");
 }
