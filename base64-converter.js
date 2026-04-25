@@ -47,6 +47,7 @@ switch (action) {
 		input = input.replace(/=/g, "");
 
 		console.log(input);
+		console.log(padCharCount);
 
 		break;
 }
