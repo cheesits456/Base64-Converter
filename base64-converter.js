@@ -1,6 +1,6 @@
 const action = process.argv[2];
 let input = process.argv.slice(3).join(" ");
-const base64Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+const base64Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 
 if (!["encode", "decode"].includes(action)) return console.log("Error: First arg must be one of 'encode' or 'decode'");
@@ -20,7 +20,7 @@ switch (action) {
 		while (lastChar.length < 6) {
 			lastChar += "00";
 			padding += "=";
-		}
+		};
 		encodingBinaryData[encodingBinaryData.length - 1] = lastChar;
 
 		// Convert binary sets back to characters using the base64Alphabet variable as reference
@@ -36,7 +36,7 @@ switch (action) {
 		// Check if all chars are valid
 		for (const char of input.split("")) {
 			if (!base64Alphabet.includes(char) && char !== "=") return invalidBase64String();
-		}
+		};
 
 		// Add pad chars if missing
 		while (input.length % 4) input += "=";
@@ -54,17 +54,17 @@ switch (action) {
 			let binary = base64Alphabet.indexOf(char).toString(2);
 			if (i === input.length && padCharCount) {
 				for (let j = 0; j < padCharCount; j++) binary += "00";
-			}
+			};
 			while (binary.length < 6) binary = `0${binary}`;
 			decodingBinaryData += binary;
-		}
+		};
 
 		console.log(input);
 		console.log(decodingBinaryData);
 		console.log(padCharCount);
 
 		break;
-}
+};
 
 
 function convertToBinary(text) {
@@ -73,10 +73,10 @@ function convertToBinary(text) {
 		let data = text[i].charCodeAt(0).toString(2);
 		while (data.length < 8) data = `0${data}`;
 		binary += data;
-	}
+	};
 	return binary;
-}
+};
 
 function invalidBase64String() {
 	console.log("Error: Input string is not a valid base64 string");
-}
+};
