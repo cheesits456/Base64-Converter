@@ -59,9 +59,6 @@ switch (action) {
 			decodingBinaryData += binary;
 		};
 
-		console.log(input);
-		console.log(decodingBinaryData);
-		console.log(padCharCount);
 
 		break;
 };
