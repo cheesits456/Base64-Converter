@@ -31,7 +31,7 @@ switch (action) {
 
 		break;
 
-		
+
 	case "decode":
 		// Check if all chars are valid
 		for (const char of input.split("")) {
