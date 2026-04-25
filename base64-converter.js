@@ -9,7 +9,7 @@ if (!["encode", "decode"].includes(action)) return console.log("Error: First arg
 switch (action) {
 
 	case "encode":
-		let output = "";
+		let encodingOutput = "";
 		let padding = "";
 
 		// Convert input to binary, split every 6 characters
@@ -24,10 +24,10 @@ switch (action) {
 		encodingBinaryData[encodingBinaryData.length - 1] = lastChar;
 
 		// Convert binary sets back to characters using the base64Alphabet variable as reference
-		for (const element of encodingBinaryData) output += base64Alphabet.charAt(parseInt(element, 2));
+		for (const element of encodingBinaryData) encodingOutput += base64Alphabet.charAt(parseInt(element, 2));
 
-		// Print output to console with pad char(s)
-		console.log(output + padding);
+		// Print encodingOutput to console with pad char(s)
+		console.log(encodingOutput + padding);
 
 		break;
 
