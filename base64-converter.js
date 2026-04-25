@@ -13,18 +13,18 @@ switch (action) {
 		let padding = "";
 
 		// Convert input to binary, split every 6 characters
-		const binaryData = convertToBinary(input).match(/.{1,6}/g);
+		const encodingBinaryData = convertToBinary(input).match(/.{1,6}/g);
 
 		// Pad last array element and set pad string with appropriate number of '='
-		let lastChar = binaryData[binaryData.length - 1];
+		let lastChar = encodingBinaryData[encodingBinaryData.length - 1];
 		while (lastChar.length < 6) {
 			lastChar += "00";
 			padding += "=";
 		}
-		binaryData[binaryData.length - 1] = lastChar;
+		encodingBinaryData[encodingBinaryData.length - 1] = lastChar;
 
 		// Convert binary sets back to characters using the base64Alphabet variable as reference
-		for (const element of binaryData) output += base64Alphabet.charAt(parseInt(element, 2));
+		for (const element of encodingBinaryData) output += base64Alphabet.charAt(parseInt(element, 2));
 
 		// Print output to console with pad char(s)
 		console.log(output + padding);
