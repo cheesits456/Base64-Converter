@@ -46,7 +46,21 @@ switch (action) {
 		if (padCharCount > 2) return invalidBase64String();
 		input = input.replace(/=/g, "");
 
+		// Build binary string by fetching index of each char and converting to binary,
+		// if last char pad if necessary, front-pad with zeros until length=6
+		let decodingBinaryData = "";
+		for (let i = 0; i < input.length; i++) {
+			const char = input.charAt(i);
+			let binary = base64Alphabet.indexOf(char).toString(2);
+			if (i === input.length && padCharCount) {
+				for (let j = 0; j < padCharCount; j++) binary += "00";
+			}
+			while (binary.length < 6) binary = `0${binary}`;
+			decodingBinaryData += binary;
+		}
+
 		console.log(input);
+		console.log(decodingBinaryData);
 		console.log(padCharCount);
 
 		break;
