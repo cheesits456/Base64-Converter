@@ -59,6 +59,17 @@ switch (action) {
 			decodingBinaryData += binary;
 		};
 
+		// Split binary string every 8 chars, remove final element if padded, convert each set to its ASCII
+		// representation and combine together for final output
+		const binaryArray = decodingBinaryData.match(/.{1,8}/g);
+		if (binaryArray[binaryArray.length - 1].length < 8) binaryArray.pop();
+		let decodingOutput = "";
+		for (const eightBitSequence of binaryArray) {
+			decodingOutput += String.fromCharCode(parseInt(Number(eightBitSequence), 2));
+		};
+
+		// Print decodingOutput to console
+		console.log(decodingOutput);
 
 		break;
 };
