@@ -41,8 +41,10 @@ switch (action) {
 		// Add pad chars if missing
 		while (input.length % 4) input += "=";
 
-		// Check if valid number of pad chars
-		if (input.split("=").length > 3) return invalidBase64String();
+		// Set variable for # pad chars, check if valid, remove chars from input string
+		const padCharCount = input.split("=").length - 1;
+		if (padCharCount > 2) return invalidBase64String();
+		input = input.replace(/=/g, "");
 
 		console.log(input);
 
