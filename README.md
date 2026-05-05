@@ -8,7 +8,7 @@ Just a small side project for me to learn how base64 encoding and decoding works
 ### Input:
 
 ```bash
-node ./base64-converter.js encode Hello, my name is Quin"
+node ./base64-converter.js encode Hello, my name is Quin
 ```
 
 ### Output:
