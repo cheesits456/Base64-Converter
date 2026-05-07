@@ -63,10 +63,10 @@ function decode(type) {
 
 			// Split binary string every 8 chars, remove final element if padded, convert each set to its ASCII
 			// representation and combine together for final output
-			const binaryArray = decodingBinaryData.match(/.{1,8}/g);
-			if (binaryArray[binaryArray.length - 1].length < 8) binaryArray.pop();
+			const base64BinaryArray = decodingBinaryData.match(/.{1,8}/g);
+			if (base64BinaryArray[base64BinaryArray.length - 1].length < 8) base64BinaryArray.pop();
 			let decodingOutput = "";
-			for (const eightBitSequence of binaryArray) {
+			for (const eightBitSequence of base64BinaryArray) {
 				decodingOutput += String.fromCharCode(parseInt(Number(eightBitSequence), 2));
 			};
 
@@ -77,7 +77,13 @@ function decode(type) {
 
 
 		case "binary":
-
+			let binaryArray = input.split(" ");
+			for (const binary of binaryArray) {
+				if (!binary.match(/[01]{8}/)) return console.log("Error: Input is not valid binary - must be in groups of 8 digits long and only use the digits 0 and 1");
+			};
+			let binaryOutput = "";
+			for (const binary of binaryArray) binaryOutput += String.fromCharCode(parseInt(Number(binary), 2));
+			console.log(binaryOutput);
 			break;
 	};
 };
@@ -104,6 +110,7 @@ function encode(type) {
 			for (const element of encodingBinaryData) encodingOutput += base64Alphabet.charAt(parseInt(element, 2));
 
 			// Print encodingOutput to console with pad char(s)
+			console.log();
 			console.log(encodingOutput + padding);
 
 			break;
@@ -112,9 +119,8 @@ function encode(type) {
 			case "binary":
 				let binaryArray = [];
 				for (let i = 0; i < input.length; i++) binaryArray.push(input[i].charCodeAt(0).toString(2));
-				for (let i = 0; i < binaryArray.length; i++) {
-					while (binaryArray[i].length < 8) binaryArray[i] = `0${binaryArray[i]}`; 
-				};
+				for (let i = 0; i < binaryArray.length; i++) while (binaryArray[i].length < 8) binaryArray[i] = `0${binaryArray[i]}`;
+				console.log();
 				console.log(binaryArray.join(" "));
 			break;
 	};
